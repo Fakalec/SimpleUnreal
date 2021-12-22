@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "NewActor.generated.h"
 
 UCLASS()
@@ -15,12 +16,18 @@ public:
 	// Sets default values for this actor's properties
 	ANewActor();
 
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* BaseMesh;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
+	void PrintTypes();
 };
